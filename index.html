@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: linear-gradient(135deg, #0a0a0a 0%, #0d001a 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #1a1a1a;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(90, 24, 154, 0.5), 0 0 20px rgba(168, 85, 247, 0.3);
+            overflow: hidden;
+            border: 2px solid #5a189a;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #000000 0%, #1a0033 50%, #000000 100%);
+            color: #ffffff;
+            padding: 60px 40px;
+            text-align: center;
+            border-bottom: 3px solid #a855f7;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #a855f7;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .header .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            color: #f0f0f0;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+
+        .content {
+            padding: 40px;
+            background: #1a1a1a;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-family: 'UnifrakturMaguntia', 'Old English Text MT', 'Blackletter', serif;
+            font-size: 2rem;
+            color: #a855f7;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #5a189a;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+            letter-spacing: 1px;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d0d0d0;
+        }
+
+        .experience-item, .education-item {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #0d0d0d;
+            border-radius: 8px;
+            border-left: 4px solid #a855f7;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .experience-logo, .education-logo {
+            width: 80px;
+            height: 80px;
+            min-width: 80px;
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #a855f7;
+            flex-shrink: 0;
+        }
+
+        .experience-logo img, .education-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: brightness(1) contrast(1);
+        }
+
+        .experience-content, .education-content {
+            flex: 1;
+        }
+
+        .experience-item h3, .education-item h3 {
+            color: #ffffff;
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .company, .school {
+            color: #a855f7;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .date {
+            color: #999;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            color: #c0c0c0;
+            line-height: 1.6;
+        }
+
+        .description ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .description li {
+            margin-bottom: 5px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-category {
+            background: #0d0d0d;
+            padding: 20px;
+            border-radius: 8px;
+            border-top: 3px solid #a855f7;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+        }
+
+        .skill-category h4 {
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 5px 0;
+            color: #c0c0c0;
+        }
+
+        .skill-list li:before {
+            content: "▸ ";
+            color: #a855f7;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 40px 20px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .experience-item, .education-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .experience-logo, .education-logo {
+                margin-bottom: 15px;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <h1>Rhian Anthony</h1>
+            <p class="tagline">Software Engineering Manager, AI Program Lead</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>rhian.anthony@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <span>(978)509-1223</span>
+                </div>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>11462 Creekstone Lane, San Diego, CA 92128</span>
+                </div>
+                <div class="contact-item">
+                    <span>🔗</span>
+                    <span>https://www.linkedin.com/in/rhiananthony/</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <!-- About Section -->
+            <div class="section">
+                <h2 class="section-title">About Me</h2>
+                <p class="about-text">
+                    Dynamic Engineering and Product Delivery Leader with 10+ years of experience driving 
+                    large-scale software, AI, and platform modernization initiatives. Proven ability to align 
+                    technical strategy with business outcomes, lead cross-functional teams, and deliver measurable 
+                    innovation. Skilled in AI-driven automation, DevOps, cloud platforms (AWS & GCP), and enterprise 
+                    transformation. Adept at balancing hands-on technical depth with visionary leadership that 
+                    accelerates delivery, reliability, and operational intelligence.
+                </p>
+            </div>
+
+            <!-- Experience Section -->
+            <div class="section">
+                <h2 class="section-title">Professional Experience</h2>
+                
+                <div class="experience-item">
+                    <div class="experience-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/PlayStation_logo.svg" alt="Sony Interactive Entertainment Logo">
+                    </div>
+                    <div class="experience-content">
+                        <h3>Manager, AI & Platform Engineering (formerly Lead SRE / Software Manager)</h3>
+                        <div class="company">Sony Interactive Entertainment</div>
+                        <div class="date">Dec 2021 – Present | San Diego, CA</div>
+                        <div class="description">
+                            <ul>
+                                <li>Drive multi-team initiatives in platform modernization, AI-enabled automation, and operational intelligence powering PlayStation's core platform infrastructure</li>
+                                <li>As AI Program Lead, developed and implemented the organization's AI strategy under the Director of Platform Engineering — uniting data science, DevOps, and software teams around shared innovation goals</li>
+                                <li>Led delivery of OpsInsight, a flagship AI analytics platform automating operational visibility and replacing manual data pipelines — reducing reporting time from hours to seconds</li>
+                                <li>Championed the AI Chatbot Integration Program, connecting Slack and GitHub for intelligent engineering assistance, boosting developer productivity</li>
+                                <li>Pioneered AI-based documentation generation, automating SDK and API reference creation for internal and client-facing systems</li>
+                                <li>Drove AI-assisted schema migration and event standardization in the Unified Events Program to improve observability and data analytics reliability</li>
+                                <li>Introduced machine-learning-driven anomaly detection integrated with observability tooling</li>
+                                <li>Directed infrastructure modernization and cost optimization projects, increasing resilience while reducing operational overhead</li>
+                                <li>Cultivated a culture of AI upskilling and responsible innovation, mentoring engineers and leading technical career growth programs</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-logo">
+                        <img src="https://logo.clearbit.com/broadinstitute.org" alt="Broad Institute Logo" onerror="this.src='https://via.placeholder.com/80x80/4A148C/FFFFFF?text=Broad'">
+                    </div>
+                    <div class="experience-content">
+                        <h3>Senior Software Engineer, DevOps / Team Lead</h3>
+                        <div class="company">The Broad Institute of MIT and Harvard</div>
+                        <div class="date">2018 – 2021 | Cambridge, MA</div>
+                        <div class="description">
+                            <ul>
+                                <li>Architected workflow automation and continuous-delivery frameworks for large-scale genomic research collaborations</li>
+                                <li>Partnered with Google Cloud and Stanford to operationalize the Human Cell Atlas data infrastructure</li>
+                                <li>Supported Agile transformation and delivery cycles across distributed research teams</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-logo">
+                        <img src="https://logo.clearbit.com/irobot.com" alt="iRobot Logo" onerror="this.src='https://via.placeholder.com/80x80/4A148C/FFFFFF?text=iRobot'">
+                    </div>
+                    <div class="experience-content">
+                        <h3>Cloud DevOps Engineer</h3>
+                        <div class="company">iRobot</div>
+                        <div class="date">2016 – 2018 | Burlington, MA</div>
+                        <div class="description">
+                            <ul>
+                                <li>Built and deployed scalable cloud infrastructure for IoT consumer devices</li>
+                                <li>Recognized with 2 company-wide performance awards and voted Best IT Employee (Q2 2017)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Warner_Bros_logo.svg" alt="Warner Brothers Logo">
+                    </div>
+                    <div class="experience-content">
+                        <h3>Sr Software Engineer / Team Lead</h3>
+                        <div class="company">Warner Bros. Games / Turbine Studios</div>
+                        <div class="date">2012 – 2016 | Needham, MA</div>
+                        <div class="description">
+                            <ul>
+                                <li>Developed high-availability backend systems for globally distributed gaming titles (Mortal Kombat X, Batman Arkham series, Injustice, Shadows of Mordor, Lord of the Rings Online, Dungeons and Dragons Online)</li>
+                                <li>Managed PCI-compliant billing migration impacting multi-million-dollar revenue pipelines</li>
+                                <li>Acted as technical liaison with internal and external dev studios across the WB network</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education Section -->
+            <div class="section">
+                <h2 class="section-title">Education</h2>
+                
+                <div class="education-item">
+                    <div class="education-logo">
+                        <img src="https://logo.clearbit.com/bu.edu" alt="Boston University Logo" onerror="this.src='https://via.placeholder.com/80x80/CC0000/FFFFFF?text=BU'">
+                    </div>
+                    <div class="education-content">
+                        <h3>Boston University</h3>
+                        <div class="school">Software Development</div>
+                        <div class="date">Completed</div>
+                        <div class="description">
+                            GPA: 3.7 — Advanced coursework in software development, engineering practices, and technology leadership
+                        </div>
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-logo">
+                        <img src="https://logo.clearbit.com/umb.edu" alt="UMass Boston Logo" onerror="this.src='https://via.placeholder.com/80x80/003478/FFFFFF?text=UMB'">
+                    </div>
+                    <div class="education-content">
+                        <h3>University of Massachusetts, Boston</h3>
+                        <div class="school">Bachelor of Science in Physics/Mathematics, Cum Laude</div>
+                        <div class="date">Graduated</div>
+                        <div class="description">
+                            GPA: 3.67 — Comprehensive studies in physics, mathematics, and computational sciences
+                        </div>
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-logo">
+                        <img src="https://logo.clearbit.com/umass.edu" alt="UMass Amherst Logo" onerror="this.src='https://via.placeholder.com/80x80/881C1C/FFFFFF?text=UMass'">
+                    </div>
+                    <div class="education-content">
+                        <h3>University of Massachusetts, Amherst</h3>
+                        <div class="school">Bachelor of Arts in Psychology/Biology</div>
+                        <div class="date">Graduated</div>
+                        <div class="description">
+                            Interdisciplinary studies combining psychology and biological sciences
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills Section -->
+            <div class="section">
+                <h2 class="section-title">Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Leadership Skills</h4>
+                        <ul class="skill-list">
+                            <li>AI Strategy & Execution</li>
+                            <li>Platform Engineering</li>
+                            <li>Software Engineering</li>
+                            <li>SRE Leadership</li>
+                            <li>Cloud Infrastructure (AWS/GCP)</li>
+                            <li>Agile Delivery</li>
+                            <li>Technical Mentorship</li>
+                            <li>Stakeholder Engagement</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>AI Technology</h4>
+                        <ul class="skill-list">
+                            <li>Prompt Engineering</li>
+                            <li>Generative AI Tools</li>
+                            <li>Cursor</li>
+                            <li>ChatGPT</li>
+                            <li>GitHub Copilot</li>
+                            <li>Amazon Q</li>
+                            <li>Datadog Bits AI</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Programming</h4>
+                        <ul class="skill-list">
+                            <li>Python</li>
+                            <li>Golang</li>
+                            <li>Java</li>
+                            <li>Bash</li>
+                            <li>C#</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Infrastructure & Cloud</h4>
+                        <ul class="skill-list">
+                            <li>AWS</li>
+                            <li>GCP</li>
+                            <li>Terraform</li>
+                            <li>Kubernetes</li>
+                            <li>Helm</li>
+                            <li>Docker</li>
+                            <li>Jenkins</li>
+                            <li>Git Actions</li>
+                            <li>Argo</li>
+                            <li>Vault</li>
+                            <li>Puppet</li>
+                            <li>Ansible</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Tools & Monitoring</h4>
+                        <ul class="skill-list">
+                            <li>GitHub</li>
+                            <li>Splunk</li>
+                            <li>Datadog</li>
+                            <li>Grafana</li>
+                            <li>Prometheus</li>
+                            <li>AppDynamics</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Languages</h4>
+                        <ul class="skill-list">
+                            <li>English (Fluent)</li>
+                            <li>German (Intermediate)</li>
+                            <li>French (Beginner)</li>
+                            <li>Spanish (Beginner)</li>
+                            <li>Japanese (Beginner)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Volunteer Experience Section -->
+            <div class="section">
+                <h2 class="section-title">Volunteer Experience</h2>
+                
+                <div class="experience-item">
+                    <div class="experience-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Massachusetts_General_Hospital_logo.svg" alt="Massachusetts General Hospital Logo">
+                    </div>
+                    <div class="experience-content">
+                        <h3>Emergency Room Volunteer</h3>
+                        <div class="company">Massachusetts General Hospital</div>
+                        <div class="date">March 2007 - July 2008 (1 year 5 months)</div>
+                        <div class="description">
+                            Contributed to patient care and hospital operations by providing essential support services 
+                            including giving directions, delivering food, assisting orderlies with patient transport, 
+                            maintaining cleanliness, and providing comfort items such as blankets and reading materials 
+                            to patients and families.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hobbies & Interests Section -->
+            <div class="section">
+                <h2 class="section-title">Hobbies & Interests</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Languages</h4>
+                        <ul class="skill-list">
+                            <li>Learning Languages</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Travel</h4>
+                        <ul class="skill-list">
+                            <li>World Travel</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Music</h4>
+                        <ul class="skill-list">
+                            <li>Guitar</li>
+                            <li>Bass Guitar</li>
+                            <li>Violin</li>
+                            <li>Ukulele</li>
+                            <li>Piano</li>
+                            <li>Singing</li>
+                            <li>Karaoke</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
